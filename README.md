@@ -51,3 +51,8 @@ int main(void) {
     return 0;
 }
 ```
+
+## References
+```link
+https://betterprogramming.pub/understanding-smart-pointer-iii-909512a5eb05
+```
