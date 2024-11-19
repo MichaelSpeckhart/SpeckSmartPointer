@@ -26,27 +26,25 @@ To build this project follow these steps:
 Using `speck_pointer` is very similar to using `std::shared_ptr`. 
 
 ```cpp
-#include "speck_pointer.hpp"
+#include "unique_pointer.h"
 #include <iostream>
 #include <string>
 
-struct foo {
+struct Foo {
     std::string text;
 
-    foo(const std::string &content) : text(content) {}
+    Foo(const std::string &content) : text(content) {}
 
-    ~foo() { }
+    ~Foo() { }
 };
 
 int main(void) {
 
     // Using the primary constructor for primitive types
-    speck::speck_pointer<int> p1(new int(42));
-    speck::speck_pointer<int> p2 = p1;
+    speck::unique_pointer<int> p1(new int(42));
 
-    // Using the "make_speck_pointer" function for dynamically allocated objects
-    speck::speck_pointer<foo> fPtr = speck::make_speck_pointer<foo>("Hello World");
-
+    // Using the speck::make_unique for dynamic objects
+    speck::unique_pointer<Foo> foo_ptr = speck::make_unique<Foo>("Hello World");
 
     return 0;
 }
