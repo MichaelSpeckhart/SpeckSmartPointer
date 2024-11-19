@@ -28,11 +28,14 @@ Using `speck_pointer` is very similar to using `std::shared_ptr`.
 ```cpp
 #include "speck_pointer.hpp"
 #include <iostream>
+#include <string>
 
 struct foo {
-    string text;
+    std::string text;
 
-    foo(string content) : text(content) {}
+    foo(const std::string &content) : text(content) {}
+
+    ~foo() { }
 };
 
 int main(void) {
